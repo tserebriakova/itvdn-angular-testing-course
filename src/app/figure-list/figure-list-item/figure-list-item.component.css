@@ -1,0 +1,56 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px 5px 5px;
+  height: 40px;
+  background: var(--ng-shaper-dark-grey-1);
+  border: 1px solid var(--ng-shaper-black);
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+:host div {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+h3 {
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.meta-info {
+  display: flex;
+  margin-top: 5px;
+}
+
+.geometry-details {
+  color: var(--ng-shaper-dark-grey-3);
+  font-size: 9px;
+  margin: 0 3px;
+
+}
+
+.color-preview {
+  width: 10px;
+  height: 10px;
+  background: var(--ng-shaper-dark-grey-1);
+  border: 1px solid var(--ng-shaper-black);
+  border-radius: 2px;
+}
+
+.delete-button {
+  width: 20px;
+  border: 0;
+  padding: 5px;
+  cursor: pointer;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}

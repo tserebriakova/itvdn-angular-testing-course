@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --ng-shaper-black: #000;
+  --ng-shaper-dark-grey-1: #1f1f1f;
+  --ng-shaper-dark-grey-2: #2E2E2E;
+  --ng-shaper-dark-grey-3: #434343;
+  --ng-shaper-light-grey: #D2D2D2;
+  --ng-shaper-white: white;
+  --ng-shaper-blue: #345CEB;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  background-color: var(--ng-shaper-dark-grey-2);
+  color: var(--ng-shaper-white);
+}

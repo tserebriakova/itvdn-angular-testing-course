@@ -1,0 +1,27 @@
+<form [formGroup]="shapeFormGroup" (ngSubmit)="onSubmit()">
+    <div class="field">
+        <label for="figure-name">Name</label>
+        <input type="text" id="figure-name" formControlName="figureName">
+    </div>
+
+    <div class="field">
+        <label for="geometry-type">Shape</label>
+        <select id="geometry-type" formControlName="geometryType">
+            <option *ngFor="let geometryType of geometryTypesSelectOptions" [value]="geometryType">{{ geometryType }}
+            </option>
+        </select>
+    </div>
+
+    <div class="field">
+        <label for="figure-size">Size</label>
+        <input type="range" id="figure-size" min="1" max="10" formControlName="figureSize">
+    </div>
+
+    <div class="field">
+        <label for="figure-color">Color</label>
+        <input type="color" [style.backgroundColor]="shapeFormGroup.value.figureColor" id="figure-color"
+            formControlName="figureColor">
+    </div>
+
+    <button type="submit">CREATE</button>
+</form>

@@ -1,0 +1,6 @@
+<app-figure-list-item
+  *ngFor="let figureItem of figureList$ | async"
+  [item]="figureItem"
+  (onRemove)="onRemoveHandler($event)"
+>
+</app-figure-list-item>

@@ -1,0 +1,8 @@
+<div>
+    <h3>{{item?.name}}</h3>
+    <div class="meta-info">
+        <div class="color-preview" [style.backgroundColor]="item?.color"></div>
+        <p class="geometry-details">| {{ item?.geometryType }} | {{item?.size}}</p>
+    </div>
+</div>
+<button class="delete-button" (click)="onRemoveEmitter(item!.id)">×</button>

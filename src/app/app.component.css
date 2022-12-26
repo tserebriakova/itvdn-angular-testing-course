@@ -1,0 +1,31 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar {
+  max-width: 20%;
+  min-width: 200px;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: var(--ng-shaper-dark-grey-2);
+}
+
+.sidebar.left {
+  border-right: 1px solid var(--ng-shaper-dark-grey-1);
+}
+
+.sidebar.right {
+  border-left: 1px solid var(--ng-shaper-dark-grey-1);
+}
+
+.sidebar.left p {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 12px;
+}
+
+app-viewer, app-viewer canvas {
+  width: 100%;
+}
