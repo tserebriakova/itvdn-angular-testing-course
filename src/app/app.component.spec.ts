@@ -35,7 +35,7 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('ng-shaper');
   });
 
-  xit('should render title', () => {
+  it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
@@ -43,7 +43,7 @@ describe('AppComponent', () => {
   });
 });
 
-xdescribe('something else', () => {
+describe('something else', () => {
   it('should check something', () => {
     expect(2 + 2).toBe(4);
   });
