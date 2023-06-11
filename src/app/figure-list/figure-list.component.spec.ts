@@ -1,20 +1,21 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FigureListComponent } from "./figure-list.component";
 import { FigureListItemComponent } from "./figure-list-item/figure-list-item.component";
-import { DataService } from "../data.service";
 import { DebugElement } from "@angular/core";
 import { GeometryType } from "../figure-item.model";
 import { BehaviorSubject } from "rxjs";
 import { By } from "@angular/platform-browser";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {FigureDataService} from "../figure-data.service";
 
 describe("figure-list component", () => {
 
   let fixture: ComponentFixture<FigureListComponent>;
   let component: FigureListComponent;
   let el: DebugElement;
-  let dataService: DataService | jasmine.SpyObj<DataService>;;
+  let dataService: FigureDataService | jasmine.SpyObj<FigureDataService>;
 
-  const dataSericeSpyObj = jasmine.createSpyObj("DataService", ["removeFigureItem"], {
+  const dataServiceSpyObj = jasmine.createSpyObj("FigureDataService", {"getFigureItems": {subscribe: () => null}, "removeFigureItem": null}, {
     "data$": new BehaviorSubject([
       { id: '1234', color: "rgb(255, 222, 174)", geometryType: GeometryType.BOX, name: "Test Box 1234", size: 3 },
       { id: '5678', color: "rgb(169, 234, 31)", geometryType: GeometryType.SPHERE, name: "Test Sphere 5678", size: 5 },
@@ -24,14 +25,15 @@ describe("figure-list component", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FigureListComponent, FigureListItemComponent],
-      providers: [{ provide: DataService, useValue: dataSericeSpyObj }],
+      providers: [{ provide: FigureDataService, useValue: dataServiceSpyObj }],
+      imports: [HttpClientTestingModule],
     })
       .compileComponents()
       .then(() => {
         fixture = TestBed.createComponent(FigureListComponent);
         component = fixture.componentInstance;
         el = fixture.debugElement;
-        dataService = TestBed.inject(DataService);
+        dataService = TestBed.inject(FigureDataService);
         fixture.detectChanges();
       });
   });

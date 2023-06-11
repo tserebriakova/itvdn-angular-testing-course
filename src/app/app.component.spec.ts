@@ -7,6 +7,7 @@ import { FigureListComponent } from "./figure-list/figure-list.component";
 import { FigureListItemComponent } from "./figure-list/figure-list-item/figure-list-item.component";
 import { DataService } from "./data.service";
 import { LOCAL_STORAGE_DATA_KEY } from "./providers";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -18,7 +19,7 @@ describe('AppComponent', () => {
         FigureListComponent,
         FigureListItemComponent,
       ],
-      imports: [ReactiveFormsModule],
+      imports: [ReactiveFormsModule, HttpClientTestingModule],
       providers: [DataService, {useValue: 'figure-items', provide: LOCAL_STORAGE_DATA_KEY}],
     }).compileComponents();
   });
