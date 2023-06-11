@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DataService } from '../data.service';
+import {FigureDataService} from "../figure-data.service";
 import { GeometryType, mapToFigureItem } from '../figure-item.model';
 import { v4 as uuid } from 'uuid';
 
@@ -21,7 +21,7 @@ export class FormComponent {
 
   public geometryTypesSelectOptions: GeometryType[] = Object.values(GeometryType);
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: FigureDataService) {}
 
   public onSubmit() {
     if (this.shapeFormGroup.valid) {
@@ -31,7 +31,7 @@ export class FormComponent {
         size: this.shapeFormGroup.value.figureSize,
         color: this.shapeFormGroup.value.figureColor,
         geometryType: this.shapeFormGroup.value.geometryType,
-      }));
+      })).subscribe();
 
       this.shapeFormGroup.controls['figureName'].setValue('');
     }

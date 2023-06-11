@@ -28,16 +28,17 @@ export class DataService {
 
   public stashData(): void {
     window.localStorage.setItem(this.key, JSON.stringify(this.data));
-    console.info(`stashed ${this.data.length} items successfully.`)
+    console.info(`Stashed ${this.data.length} items successfully.`);
   }
 
   public unstashData(): void {
     const items: string | null = window.localStorage.getItem(this.key);
     this.data = items ? JSON.parse(items).map((item: any) => mapToFigureItem(item)) : [];
+    console.info(`Unstashed ${this.data.length} items successfully.`);
     this.refreshSubject();
   }
 
-  private refreshSubject() {
+  private refreshSubject(): void {
     this.data$.next(this.data);
   }
 

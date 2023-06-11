@@ -4,7 +4,7 @@ import { FigureListItemComponent } from "./figure-list-item/figure-list-item.com
 import { DataService } from "../data.service";
 import { DebugElement } from "@angular/core";
 import { GeometryType } from "../figure-item.model";
-import { BehaviorSubject, of } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import { By } from "@angular/platform-browser";
 
 describe("figure-list component", () => {
@@ -47,7 +47,7 @@ describe("figure-list component", () => {
     expect(figureListItems.length).toBe(2);
   });
 
-  it("should recieve event from list-item event emitter", () => {
+  it("should receive event from list-item event emitter", () => {
     const onRemoveHandlerSpy = spyOn(component, "onRemoveHandler");
 
     const figureListItem = el.queryAll(By.css("app-figure-list-item"))[1];

@@ -8,7 +8,9 @@ import {ViewerComponent} from "./viewer/viewer.component";
 import {FigureListComponent} from "./figure-list/figure-list.component";
 import {FigureListItemComponent} from "./figure-list/figure-list-item/figure-list-item.component";
 import { DataService } from "./data.service";
+import { FigureDataService } from "./figure-data.service";
 import { LOCAL_STORAGE_DATA_KEY } from "./providers";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { LOCAL_STORAGE_DATA_KEY } from "./providers";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [DataService, {useValue: 'figure-items', provide: LOCAL_STORAGE_DATA_KEY}],
+  providers: [DataService, FigureDataService, {useValue: 'figure-items', provide: LOCAL_STORAGE_DATA_KEY}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

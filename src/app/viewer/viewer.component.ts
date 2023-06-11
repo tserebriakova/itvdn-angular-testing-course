@@ -14,7 +14,7 @@ import {
 } from 'three';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-import { DataService } from '../data.service';
+import {FigureDataService} from "../figure-data.service";
 import { GeometryType, IFigureItem } from '../figure-item.model';
 
 @Component({
@@ -33,7 +33,7 @@ export class ViewerComponent implements AfterViewInit {
 
   private drawnFiguresUUIDs: string[] = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: FigureDataService) { }
 
   ngAfterViewInit(): void {
     this.createScene();
