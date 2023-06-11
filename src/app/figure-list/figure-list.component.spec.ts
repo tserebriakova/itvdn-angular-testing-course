@@ -5,7 +5,6 @@ import { DebugElement } from "@angular/core";
 import { GeometryType } from "../figure-item.model";
 import { BehaviorSubject } from "rxjs";
 import { By } from "@angular/platform-browser";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {FigureDataService} from "../figure-data.service";
 
 describe("figure-list component", () => {
@@ -26,7 +25,6 @@ describe("figure-list component", () => {
     await TestBed.configureTestingModule({
       declarations: [FigureListComponent, FigureListItemComponent],
       providers: [{ provide: FigureDataService, useValue: dataServiceSpyObj }],
-      imports: [HttpClientTestingModule],
     })
       .compileComponents()
       .then(() => {

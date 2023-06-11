@@ -3,7 +3,6 @@ import { FigureListItemComponent } from "./figure-list-item.component";
 import { GeometryType } from "src/app/figure-item.model";
 import { DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe("figure-list-item component", () => {
   let component: FigureListItemComponent;
@@ -13,8 +12,7 @@ describe("figure-list-item component", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FigureListItemComponent],
-      imports: [HttpClientTestingModule],
+      declarations: [FigureListItemComponent]
     })
       .compileComponents()
       .then(() => {
