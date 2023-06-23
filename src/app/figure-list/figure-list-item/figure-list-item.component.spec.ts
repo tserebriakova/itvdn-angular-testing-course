@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FigureListItemComponent } from "./figure-list-item.component";
-import { GeometryType } from "src/app/figure-item.model";
+import { GeometryType } from "../../figure-item.model";
 import { DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
 
@@ -32,7 +32,7 @@ describe("figure-list-item component", () => {
   it("should render the name of the component", () => {
     const elementWithName = el.query(By.css("h3"));
     expect(elementWithName.nativeElement).toBeTruthy();
-    expect(elementWithName.nativeElement.innerText).toBe(mockFigureItem.name);
+    expect(elementWithName.nativeElement.textContent).toBe(mockFigureItem.name);
   });
 
   it("should render the color of the figure correctly", () => {

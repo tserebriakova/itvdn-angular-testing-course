@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormComponent } from "./form/form.component";
-import { ViewerComponent } from "./viewer/viewer.component";
+// import { ViewerComponent } from "./viewer/viewer.component";
 import { FigureListComponent } from "./figure-list/figure-list.component";
 import { FigureListItemComponent } from "./figure-list/figure-list-item/figure-list-item.component";
 import { DataService } from "./data.service";
@@ -15,7 +15,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         FormComponent,
-        ViewerComponent,
+        // ViewerComponent,
         FigureListComponent,
         FigureListItemComponent,
       ],

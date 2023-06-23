@@ -2,7 +2,7 @@ import {fakeAsync, flush, flushMicrotasks, tick} from "@angular/core/testing";
 import {delay, of} from "rxjs";
 
 describe('Asynchronous tests with setTimeouts', () => {
-  it('asynchronous test :: setTimeout and jasmine.done() function', (done: DoneFn) => {
+  it('asynchronous test :: setTimeout and jest done() function', (done) => {
     let test = false;
     setTimeout(() => {
       test = true;

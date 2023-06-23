@@ -3,7 +3,7 @@ import {HttpClientTestingModule, HttpTestingController} from '@angular/common/ht
 
 import {FigureDataService} from './figure-data.service';
 import {GeometryType, IFigureItem} from "./figure-item.model";
-import {default as data} from '../../extra/data.json';
+import  * as data from '../../extra/data.json';
 import {HttpErrorResponse} from "@angular/common/http";
 
 describe('FigureDataService', () => {
