@@ -1,0 +1,6 @@
+{
+  "name": "MyTestBox",
+  "geometryType": "BoxGeometry",
+  "color": "#00ff00",
+  "size": 5
+}
