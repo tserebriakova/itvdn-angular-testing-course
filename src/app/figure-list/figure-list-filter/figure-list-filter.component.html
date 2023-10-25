@@ -1,0 +1,29 @@
+<div>
+  <form [formGroup]="filterFormGroup">
+    <div class="field with-btn">
+      <input type="text" placeholder="Search figures..." formControlName="searchName">
+      <button id="advanced-options-btn" (click)="toggleAdvancedOptionsMenu()">⌥</button>
+    </div>
+
+    <div id="advanced-options-menu" *ngIf="showAdvancedOptionsMenu">
+      <h4>Advanced Filter Options</h4>
+
+      <div class="field">
+        <label for="geometry-type-selector">Search by Shape</label>
+        <select name="geometry-type-selector" id="geometry-type-selector" formControlName="searchGeometryType">
+          <option *ngFor="let geometryType of geometryTypesSelectOptions" [value]="geometryType">{{ geometryType }}</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <h5>Search by size</h5>
+
+        <label for="size-range-selector-min">from</label>
+        <input type="range" name="size-range-selector-min" id="size-range-selector-min" min="1" max="10" step="1" formControlName="searchFigureSizeMin">
+
+        <label for="size-range-selector-max">to</label>
+        <input type="range" name="size-range-selector-max" id="size-range-selector-max" min="1" max="10" step="1" formControlName="searchFigureSizeMax">
+      </div>
+    </div>
+  </form>
+</div>

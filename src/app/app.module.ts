@@ -12,6 +12,7 @@ import { FigureDataService } from "./figure-data.service";
 import { LOCAL_STORAGE_DATA_KEY } from "./providers";
 import {HttpClientModule} from "@angular/common/http";
 import { LuckyDiceComponent } from './lucky-dice/lucky-dice.component';
+import { FigureListFilterComponent } from './figure-list/figure-list-filter/figure-list-filter.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LuckyDiceComponent } from './lucky-dice/lucky-dice.component';
     FigureListComponent,
     FigureListItemComponent,
     LuckyDiceComponent,
+    FigureListFilterComponent,
   ],
   imports: [
     BrowserModule,
