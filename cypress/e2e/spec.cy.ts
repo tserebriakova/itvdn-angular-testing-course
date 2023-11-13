@@ -49,8 +49,8 @@ describe('ng-shaper app', () => {
     cy.get('app-figure-list-item').should('not.exist');
   });
 
-  it('should create 9 new figures', () => {
-    for (let i = 1; i <= 9; i++) {
+  it('should create 10 new figures', () => {
+    for (let i = 1; i <= 10; i++) {
       cy.get('#figure-name').clear().type(`Figure ${i}`);
       cy.get('#geometry-type').select(GeometryType.BOX);
       cy.get('#figure-size').invoke('val', 1).trigger('input');
