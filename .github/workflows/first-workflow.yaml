@@ -1,6 +1,9 @@
 name: First Workflow
 
-on: [ push ]
+on:
+  pull_request:
+    branches:
+      - lesson-10-demo
 
 jobs:
   component-tests:
