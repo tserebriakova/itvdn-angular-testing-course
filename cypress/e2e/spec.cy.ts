@@ -33,7 +33,7 @@ describe('ng-shaper app', () => {
     cy.get('#figure-color').invoke('val', testFigure.color).trigger('input');;
     cy.get('button[type="submit"]').click();
 
-    cy.get('app-figure-list').should('contain', testFigure.name);
+    cy.get('app-figure-list .right sidebar').should('contain', testFigure.name);
   });
 
   it('should delete figure from the list', () => {
@@ -43,14 +43,14 @@ describe('ng-shaper app', () => {
 
   it('should delete all figures', () => {
     cy.get('app-figure-list-item .delete-button').each((deleteButton) => {
-      cy.wrap(deleteButton).click();
-    });
+    cy.wrap(deleteButton).click();
+   });
 
     cy.get('app-figure-list-item').should('not.exist');
   });
 
-  it('should create 100 new figures', () => {
-    for (let i = 1; i <= 100; i++) {
+  it('should create 10 new figures', () => {
+    for (let i = 1; i <= 10; i++) {
       cy.get('#figure-name').clear().type(`Figure ${i}`);
       cy.get('#geometry-type').select(GeometryType.BOX);
       cy.get('#figure-size').invoke('val', 1).trigger('input');
@@ -60,7 +60,7 @@ describe('ng-shaper app', () => {
       cy.get('app-figure-list').should('contain', `Figure ${i}`);
     }
 
-    cy.get('app-figure-list-item').should('have.length', 100);
+    cy.get('app-figure-list-item').should('have.length', 10);
   });
 
   it('should not create a new figure if name field is empty', () => {

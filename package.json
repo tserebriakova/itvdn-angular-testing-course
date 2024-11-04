@@ -9,7 +9,10 @@
     "test": "ng test",
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "cypress:components": "cypress run --component",
+    "server:start": "node ./extra/server.js",
+    "static:run": "cd ./dist/itvdn-angular-testing-course && npx http-server"
   },
   "private": true,
   "dependencies": {

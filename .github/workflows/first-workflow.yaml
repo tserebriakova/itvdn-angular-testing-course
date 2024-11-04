@@ -1,0 +1,31 @@
+name: First Workflow
+
+on: [push]
+
+jobs:
+  component-tests:
+    runs-on: macos-latest  
+    steps:
+       - name: Checkout
+         uses: actions/checkout@v4
+         
+       - name: Cypress Run
+         uses: cypress-io/github-actions@v6
+         with:
+            component: true
+
+  build-and-e2e-tests:
+    runs-on: macos-latest
+    steps:
+       - name: Checkout
+         uses: actions/checkout@v4
+        
+       - name: Cypress Run
+         uses: cypress-io/github-actions@v6
+         with:
+            build: npm run build
+            start: npm run server:start, npm run static:run
+    needs: [ component-tests ]        
+          
+             
+

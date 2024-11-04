@@ -28,13 +28,13 @@ describe('FigureDataService', () => {
 
   it('should get figure items', () => {
     figureDataService.getFigureItems().subscribe((items) => {
-      expect(items).toEqual((data as Array<IFigureItem>));
-      expect(figureDataService.data.length).toBe(51);
-      expect(figureDataService.data).toEqual((data as Array<IFigureItem>));
+      expect(items).equal((data as Array<IFigureItem>));
+      expect(figureDataService.data.length).be(51);
+      expect(figureDataService.data).equal((data as Array<IFigureItem>));
     });
 
     const req = httpMock.expectOne(basePath);
-    expect(req.request.method).toBe('GET');
+    expect(req.request.method).be('GET');
     req.flush(data);
   });
 
@@ -43,31 +43,31 @@ describe('FigureDataService', () => {
     const figureItem = {id: 'test-id', name: 'Test Figure', size: 2, color: '#ffffff', geometryType: GeometryType.BOX};
 
     figureDataService.addFigureItem(figureItem).subscribe((item) => {
-      expect(item).toEqual(figureItem);
-      expect(figureDataService.data.length).toBe(1);
+      expect(item).equal(figureItem);
+      expect(figureDataService.data.length).be(1);
     });
 
     const req = httpMock.expectOne(basePath);
-    expect(req.request.method).toBe('POST');
+    expect(req.request.method).be('POST');
     req.flush(figureItem);
   });
 
   it('should update a figure item', () => {
     const figureItem = {id: 'test-id', name: 'Test Figure', size: 2, color: '#ffffff', geometryType: GeometryType.BOX};
     figureDataService.data = [figureItem];
-    expect(figureDataService.data[0]).toEqual(figureItem);
+    expect(figureDataService.data[0]).equal(figureItem);
 
     const updatedFigureItem = {id: 'test-id', name: 'Updated Test Figure', size: 1, color: '#000000', geometryType: GeometryType.SPHERE};
-    expect(figureDataService.data[0]).not.toEqual(updatedFigureItem);
+    expect(figureDataService.data[0]).not.equal(updatedFigureItem);
 
     figureDataService.updateFigureItem(updatedFigureItem).subscribe((item) => {
-      expect(item).toEqual(updatedFigureItem);
-      expect(figureDataService.data.length).toBe(1);
-      expect(figureDataService.data[0]).toEqual(updatedFigureItem);
+      expect(item).equal(updatedFigureItem);
+      expect(figureDataService.data.length).be(1);
+      expect(figureDataService.data[0]).equal(updatedFigureItem);
     });
 
     const req = httpMock.expectOne(`${basePath}/test-id`);
-    expect(req.request.method).toBe('PUT');
+    expect(req.request.method).be('PUT');
     req.flush('test-id');
   });
 
@@ -77,12 +77,12 @@ describe('FigureDataService', () => {
     figureDataService.data = [figureItem];
 
     figureDataService.removeFigureItem(figureItem.id).subscribe((removedFigureId) => {
-      expect(removedFigureId).toEqual('test-id');
-      expect(figureDataService.data.length).toBe(0);
+      expect(removedFigureId).equal('test-id');
+      expect(figureDataService.data.length).be(0);
     });
 
     const req = httpMock.expectOne(`${basePath}/test-id`);
-    expect(req.request.method).toBe('DELETE');
+    expect(req.request.method).be('DELETE');
     req.flush('test-id');
   });
 
@@ -93,12 +93,12 @@ describe('FigureDataService', () => {
     figureDataService.removeFigureItem('wrong-test-id').subscribe({
       next: () => fail('remove figure operation should have failed'),
       error: (error: HttpErrorResponse) => {
-        expect(error.status).toBe(400);
-        expect(figureDataService.data.length).toBe(1);
+        expect(error.status).be(400);
+        expect(figureDataService.data.length).be(1);
       }});
 
     const req = httpMock.expectOne(`${basePath}/wrong-test-id`);
-    expect(req.request.method).toBe('DELETE');
+    expect(req.request.method).be('DELETE');
     req.flush('wrong-test-id', {status: 400, statusText: 'Cannot find figure with provided identifier.'});
   });
 
@@ -139,18 +139,18 @@ describe('FigureDataService', () => {
     ];
 
     figureDataService.filterFigureItems(size, color, geometryType, sortOrder).subscribe((items) => {
-      expect(items).toEqual(filteredFigureItems);
-      expect(figureDataService.data.length).toBe(2);
-      expect(figureDataService.data).toEqual(filteredFigureItems);
+      expect(items).equal(filteredFigureItems);
+      expect(figureDataService.data.length).be(2);
+      expect(figureDataService.data).equal(filteredFigureItems);
     });
 
     const req = httpMock.expectOne((req) => req.url === basePath);
 
-    expect(req.request.method).toBe('GET');
-    expect(req.request.params.get('size')).toBe(size.toString());
-    expect(req.request.params.get('color')).toBe(color);
-    expect(req.request.params.get('geometryType')).toBe(geometryType);
-    expect(req.request.params.get('sortOrder')).toBe(sortOrder);
+    expect(req.request.method).be('GET');
+    expect(req.request.params.get('size')).be(size.toString());
+    expect(req.request.params.get('color')).be(color);
+    expect(req.request.params.get('geometryType')).be(geometryType);
+    expect(req.request.params.get('sortOrder')).be(sortOrder);
 
     req.flush(filteredFigureItems);
   });
