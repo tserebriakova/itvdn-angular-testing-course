@@ -6,7 +6,7 @@ import {GeometryType, IFigureItem} from "./figure-item.model";
 import {default as data} from '../../extra/data.json';
 import {HttpErrorResponse} from "@angular/common/http";
 
-describe('FigureDataService', () => {
+describe('FigureDataService', () => { 
   let figureDataService: FigureDataService;
   let httpMock: HttpTestingController;
 
